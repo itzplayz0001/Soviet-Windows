@@ -1,4 +1,4 @@
-using System.Media;
+﻿using System.Media;
 using System.Windows.Forms;
 using System.Threading;
 using System.Drawing;
@@ -16,6 +16,13 @@ namespace Soviet_Windows
 
         private async void boot_Load(object sender, EventArgs e)
         {
+            // TANK ANIMATION
+            tTwo.Hide();
+            tThree.Hide();
+            tFour.Hide();
+            tFive.Hide();
+            tZero.Hide();
+
             // LOAD
             black.Visible = true;
             errorMsg.Visible = false;
@@ -30,6 +37,41 @@ namespace Soviet_Windows
             await Task.Delay(1001);
             stalinsoftBoot.Visible = true;
             await Task.Delay(2005);
+            computerKreek.Stop();
+            // tanks <-----
+            SoundPlayer prelog = new SoundPlayer(@"Assets\Audio\prelogin.wav");
+            prelog.Play();
+            //await Task.Delay(1200);
+            tOne.Hide();
+            tTwo.Show();
+            await Task.Delay(1200);
+            tTwo.Hide();
+            tThree.Show();
+            await Task.Delay(1200);
+            tThree.Hide();
+            tFour.Show();
+            await Task.Delay(1200);
+            tFour.Hide();
+            tFive.Show();
+            await Task.Delay(1200);
+            tFive.Hide();
+
+            tZero.Show();
+            await Task.Delay(1200);
+            tZero.Hide();
+            tOne.Hide();
+            tTwo.Show();
+            await Task.Delay(1200);
+            tTwo.Hide();
+            tThree.Show();
+            await Task.Delay(1200);
+            tThree.Hide();
+            tFour.Show();
+            await Task.Delay(1200);
+            tFour.Hide();
+            tFive.Show();
+            await Task.Delay(1200);
+
             stalinsoftBoot.Visible = false;
             await Task.Delay(400);
             black.Visible = false;
@@ -37,10 +79,15 @@ namespace Soviet_Windows
             errorMsg.Visible = true;
             await Task.Delay(1050);
 
-            // REDIRECTING TO WINDOWS XP LOGIN
-            application main = new application();
-            main.Show();
+            // REDIRECTING TO WINDOWS XP LOGIN 
+            login loginPage = new login();
+            loginPage.Show();
             this.Hide();
+        }
+
+        private void stalinsoftBoot_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }
