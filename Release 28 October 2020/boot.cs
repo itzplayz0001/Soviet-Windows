@@ -70,7 +70,7 @@ namespace Soviet_Windows
             await Task.Delay(1200);
             tFour.Hide();
             tFive.Show();
-            // Tamk Animation, you can just copy paste to make the animatin longer
+            // Tank Animation ^ , you can just copy paste to make the animation longer!
             await Task.Delay(1200);
 
             stalinsoftBoot.Visible = false;
